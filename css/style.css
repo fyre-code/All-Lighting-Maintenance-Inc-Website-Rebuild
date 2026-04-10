@@ -158,6 +158,25 @@ ul {
 
 .nav-brand {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.brand-text {
+  display: flex;
   flex-direction: column;
 }
 
@@ -618,6 +637,13 @@ ul {
   padding: 60px 0 40px;
   gap: 40px;
   flex-wrap: wrap;
+}
+
+.footer-logo {
+  height: 56px;
+  width: auto;
+  display: block;
+  margin-bottom: 16px;
 }
 
 .footer-company-name {
