@@ -383,7 +383,7 @@ ul {
 
 .card {
   background: transparent;
-  border: 2px solid var(--black);
+  border: none;
   padding: 40px 30px;
   text-align: center;
 }
