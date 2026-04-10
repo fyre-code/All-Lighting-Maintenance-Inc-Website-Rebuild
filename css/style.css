@@ -370,6 +370,10 @@ ul {
   background: var(--white);
 }
 
+#about .section-title {
+  font-size: 2.8rem;
+}
+
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -391,7 +395,7 @@ ul {
 }
 
 .card h3 {
-  font-size: 1.25rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--dark);
   margin: 0 0 14px;
@@ -399,7 +403,7 @@ ul {
 
 .card p {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--dark);
   line-height: 1.7;
   margin: 0;
 }
