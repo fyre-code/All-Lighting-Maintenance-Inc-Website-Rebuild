@@ -852,25 +852,33 @@ ul {
 
 .social-icons {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .social-icons a {
-  width: 42px;
-  height: 42px;
-  border: 2px solid #444;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
   color: #ccc;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.social-icons a i {
   font-size: 1rem;
-  transition: border-color 0.2s, color 0.2s;
+  width: 18px;
+  text-align: center;
+  transition: color 0.2s;
+  flex-shrink: 0;
 }
 
 .social-icons a:hover {
-  border-color: var(--red);
-  color: var(--white);
+  color: #ccc;
+}
+
+.social-icons a:hover i {
+  color: var(--red);
 }
 
 .footer-bottom {
