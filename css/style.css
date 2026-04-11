@@ -449,20 +449,29 @@ ul {
   background: var(--dark);
 }
 
-#gallery .section-title::after {
-  background: var(--gold);
+/* Carousel wrapper */
+.gallery-carousel {
+  position: relative;
+  overflow: hidden;
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.gallery-track-wrapper {
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.4s ease;
   gap: 12px;
 }
 
 .gallery-item {
+  flex: 0 0 calc(25% - 9px);
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border: 2px solid #333;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .gallery-item img {
@@ -471,31 +480,142 @@ ul {
   object-fit: cover;
   display: block;
   transition: transform 0.3s;
+  pointer-events: none;
 }
 
-.gallery-item img:hover {
+.gallery-item:hover img {
   transform: scale(1.05);
 }
 
-.gallery-placeholder {
-  width: 100%;
-  height: 100%;
+/* Carousel nav buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.65);
+  border: 2px solid var(--gold);
+  color: var(--white);
+  width: 44px;
+  height: 44px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #2a2a2a;
-  color: #555;
-  font-size: 0.8rem;
-  font-weight: 500;
-  gap: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.carousel-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
+
+.carousel-btn:disabled {
+  opacity: 0.25;
   cursor: default;
 }
 
-.gallery-placeholder i {
-  font-size: 2rem;
-  color: var(--gold);
+/* Carousel dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
 }
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #555;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.carousel-dot.active {
+  background: var(--gold);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  display: block;
+  border: 2px solid #333;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 2001;
+  transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+  color: var(--red);
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: 2px solid var(--gold);
+  color: var(--white);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 2001;
+  transition: background 0.2s;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.lightbox-prev { left: 12px; }
+.lightbox-next { right: 12px; }
+
+#gallery .section-title::after {
+  background: var(--gold);
+}
+
 
 /* ======================
    9. VIDEOS SECTION
@@ -815,8 +935,8 @@ ul {
   }
 
   /* Gallery */
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .gallery-item {
+    flex: 0 0 calc(50% - 6px);
   }
 
   /* Videos */
@@ -860,8 +980,8 @@ ul {
     max-width: 320px;
   }
 
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .gallery-item {
+    flex: 0 0 calc(50% - 6px);
   }
 
   .videos-grid {

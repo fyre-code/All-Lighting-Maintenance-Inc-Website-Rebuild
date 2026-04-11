@@ -170,6 +170,122 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =====================
+  // GALLERY CAROUSEL + LIGHTBOX
+  // =====================
+  const track = document.getElementById('gallery-track');
+  const prevBtn = document.getElementById('gallery-prev');
+  const nextBtn = document.getElementById('gallery-next');
+  const dotsContainer = document.getElementById('gallery-dots');
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+
+  if (track && prevBtn && nextBtn) {
+    const items = Array.from(track.querySelectorAll('.gallery-item'));
+    const images = items.map(item => item.querySelector('img'));
+    const total = items.length;
+
+    // Visible count: 4 desktop, 2 tablet, 1 mobile
+    function getVisible() {
+      if (window.innerWidth <= 480) return 1;
+      if (window.innerWidth <= 1025) return 2;
+      return 4;
+    }
+
+    let current = 0;
+    let visible = getVisible();
+    const maxPage = () => total - visible;
+
+    // Build dots
+    function buildDots() {
+      visible = getVisible();
+      dotsContainer.innerHTML = '';
+      const pageCount = Math.ceil(total / visible);
+      for (let i = 0; i < pageCount; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i * visible));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll('.carousel-dot');
+      const activePage = Math.floor(current / visible);
+      dots.forEach((d, i) => d.classList.toggle('active', i === activePage));
+    }
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, maxPage()));
+      const itemWidth = items[0].offsetWidth + 12; // width + gap
+      track.style.transform = `translateX(-${current * itemWidth}px)`;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current >= maxPage();
+      updateDots();
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - visible));
+    nextBtn.addEventListener('click', () => goTo(current + visible));
+
+    window.addEventListener('resize', () => {
+      visible = getVisible();
+      current = 0;
+      buildDots();
+      goTo(0);
+    });
+
+    buildDots();
+    goTo(0);
+
+    // --- LIGHTBOX ---
+    let lightboxIndex = 0;
+
+    function openLightbox(index) {
+      lightboxIndex = index;
+      lightboxImg.src = images[index].src;
+      lightboxImg.alt = images[index].alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lightboxPrev.disabled = index === 0;
+      lightboxNext.disabled = index === total - 1;
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    }
+
+    items.forEach((item, i) => {
+      item.addEventListener('click', () => openLightbox(i));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    lightboxPrev.addEventListener('click', () => {
+      if (lightboxIndex > 0) openLightbox(lightboxIndex - 1);
+    });
+
+    lightboxNext.addEventListener('click', () => {
+      if (lightboxIndex < total - 1) openLightbox(lightboxIndex + 1);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft' && lightboxIndex > 0) openLightbox(lightboxIndex - 1);
+      if (e.key === 'ArrowRight' && lightboxIndex < total - 1) openLightbox(lightboxIndex + 1);
+    });
+  }
+
+  // =====================
   // CONTACT FORM
   // =====================
   // NOTE: To make this form submit for real, replace the action="#" on
