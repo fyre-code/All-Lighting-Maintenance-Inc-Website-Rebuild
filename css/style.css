@@ -717,7 +717,6 @@ ul {
 #cta-section::before, #cta-section::after {
   content: '';
   position: absolute;
-  top: 50%;
   width: 110px;
   height: 76px;
   background-repeat: no-repeat;
@@ -729,13 +728,14 @@ ul {
 }
 
 #about::before, #gallery::before, #cta-section::before {
-  left: 10px;
-  transform: translateY(-50%);
+  top: 20px;
+  right: 10px;
+  transform: scaleX(-1);
 }
 
 #about::after, #gallery::after, #cta-section::after {
-  right: 10px;
-  transform: translateY(-50%) scaleX(-1);
+  bottom: 20px;
+  left: 10px;
 }
 
 /* Bucket truck (aerial lift) — About Us */
