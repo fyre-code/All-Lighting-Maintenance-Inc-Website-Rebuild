@@ -143,7 +143,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  padding: 12px 0;
 }
 
 .nav-brand {
@@ -160,7 +160,7 @@ ul {
 }
 
 .brand-logo {
-  height: 72px;
+  height: 108px;
   width: auto;
   display: block;
 }
