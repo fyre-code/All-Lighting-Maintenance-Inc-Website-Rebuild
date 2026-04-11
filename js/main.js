@@ -285,26 +285,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // =====================
-  // CONTACT FORM
-  // =====================
-  // NOTE: To make this form submit for real, replace the action="#" on
-  // the <form> with your Formspree endpoint:
-  //   action="https://formspree.io/f/YOUR_FORM_ID"  method="POST"
-  // Then remove the e.preventDefault() call below.
-  const contactForm = document.querySelector('.contact-form');
-  const formSuccess = document.querySelector('.form-success');
-  if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      contactForm.style.display = 'none';
-      if (formSuccess) formSuccess.style.display = 'block';
-      setTimeout(() => {
-        contactForm.reset();
-        contactForm.style.display = 'flex';
-        if (formSuccess) formSuccess.style.display = 'none';
-      }, 4000);
-    });
-  }
-
 });

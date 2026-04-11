@@ -413,16 +413,28 @@ ul {
    7. REVIEWS SECTION
    ====================== */
 #reviews {
-  background: var(--grey-light);
+  background: var(--dark);
+}
+
+#reviews .section-title {
+  color: var(--white);
+}
+
+#reviews .section-title::after {
+  background: var(--gold);
+}
+
+#reviews .section-subtitle {
+  color: #aaa;
 }
 
 .reviews-widget-placeholder {
-  border: 2px dashed var(--red);
+  border: 2px dashed var(--gold);
   padding: 60px 30px;
   text-align: center;
-  color: #888;
+  color: #aaa;
   font-size: 1rem;
-  background: var(--white);
+  background: #2a2a2a;
 }
 
 .reviews-widget-placeholder .placeholder-icon {
@@ -438,7 +450,7 @@ ul {
 
 .placeholder-note {
   font-size: 0.9rem;
-  color: #aaa;
+  color: #666;
   margin-top: 10px !important;
 }
 
@@ -446,7 +458,7 @@ ul {
    8. GALLERY SECTION
    ====================== */
 #gallery {
-  background: var(--dark);
+  background: var(--grey-light);
 }
 
 /* Carousel wrapper */
@@ -469,7 +481,7 @@ ul {
   flex: 0 0 calc(25% - 9px);
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  border: 2px solid #333;
+  border: 2px solid #ccc;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -531,7 +543,7 @@ ul {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #555;
+  background: #aaa;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -613,7 +625,7 @@ ul {
 .lightbox-next { right: 12px; }
 
 #gallery .section-title::after {
-  background: var(--gold);
+  background: var(--red);
 }
 
 
@@ -621,7 +633,23 @@ ul {
    9. VIDEOS SECTION
    ====================== */
 #videos {
-  background: var(--white);
+  background: var(--dark);
+}
+
+#videos .section-title {
+  color: var(--white);
+}
+
+#videos .section-title::after {
+  background: var(--gold);
+}
+
+#videos .section-subtitle {
+  color: #aaa;
+}
+
+#videos .video-wrapper {
+  border-color: #444;
 }
 
 .videos-grid {
@@ -652,11 +680,11 @@ ul {
    10. CTA SECTION
    ====================== */
 #cta-section {
-  background: var(--black);
+  background: var(--grey-light);
 }
 
 #cta-section .section-title {
-  color: var(--white);
+  color: var(--dark);
 }
 
 #cta-section .section-title::after {
@@ -672,109 +700,48 @@ ul {
 .cta-body p {
   font-size: 1.1rem;
   font-weight: 300;
-  color: #ccc;
+  color: #555;
   margin: 0 0 0;
   line-height: 1.7;
 }
 
 /* ======================
-   11. CONTACT SECTION
+   11. FOOTER
    ====================== */
-#contact {
-  background: var(--grey-light);
+
+/* Gold corner bracket accents on dark sections */
+#reviews,
+#videos,
+#site-footer {
+  position: relative;
 }
 
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 60px;
-  align-items: start;
+#reviews::before, #videos::before, #site-footer::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-top: 2px solid var(--gold);
+  border-left: 2px solid var(--gold);
+  pointer-events: none;
+  z-index: 4;
 }
 
-.contact-info h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--dark);
-  margin: 0 0 20px;
+#reviews::after, #videos::after, #site-footer::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-bottom: 2px solid var(--gold);
+  border-right: 2px solid var(--gold);
+  pointer-events: none;
+  z-index: 4;
 }
 
-.contact-info p {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin: 0 0 14px;
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-.contact-info p i {
-  color: var(--red);
-  margin-top: 2px;
-  flex-shrink: 0;
-  width: 16px;
-}
-
-.contact-info a {
-  color: #555;
-  transition: color 0.2s;
-}
-
-.contact-info a:hover {
-  color: var(--red);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 13px 16px;
-  border: 2px solid var(--black);
-  border-radius: 0;
-  background: var(--white);
-  font-family: var(--font-main);
-  font-size: 0.95rem;
-  color: var(--dark);
-  outline: none;
-  margin-bottom: 16px;
-  transition: border-color 0.2s;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--red);
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 130px;
-}
-
-.contact-form .btn {
-  align-self: flex-start;
-  margin-top: 4px;
-}
-
-.form-success {
-  text-align: center;
-  padding: 30px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--dark);
-  border: 2px solid var(--dark);
-  display: none;
-}
-
-/* ======================
-   12. FOOTER
-   ====================== */
 #site-footer {
   background: var(--dark);
   color: #ccc;
@@ -944,11 +911,6 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Contact */
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
 }
 
 @media (max-width: 480px) {
