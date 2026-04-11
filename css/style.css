@@ -705,6 +705,62 @@ ul {
   line-height: 1.7;
 }
 
+/* Truck silhouette accents on light sections */
+#about,
+#gallery,
+#cta-section {
+  position: relative;
+}
+
+#about::before, #about::after,
+#gallery::before, #gallery::after,
+#cta-section::before, #cta-section::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 110px;
+  height: 76px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#about::before, #gallery::before, #cta-section::before {
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+#about::after, #gallery::after, #cta-section::after {
+  right: 10px;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+/* Bucket truck (aerial lift) — About Us */
+#about::before, #about::after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 90' fill='none' stroke='%23b9101b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6,68 L6,44 L18,30 L46,30 L46,68'/><path d='M18,30 L18,46 L42,46 L42,30'/><rect x='46' y='50' width='76' height='18'/><line x1='6' y1='68' x2='122' y2='68'/><circle cx='22' cy='76' r='7'/><circle cx='100' cy='76' r='7'/><rect x='63' y='44' width='10' height='7'/><line x1='68' y1='44' x2='84' y2='16'/><line x1='84' y1='16' x2='110' y2='6'/><path d='M105,2 L116,2 L114,12 L107,12 Z'/></svg>");
+}
+
+/* Crane truck — Gallery */
+#gallery::before, #gallery::after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 90' fill='none' stroke='%23b9101b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6,68 L6,44 L18,30 L46,30 L46,68'/><path d='M18,30 L18,46 L42,46 L42,30'/><rect x='46' y='50' width='76' height='18'/><line x1='6' y1='68' x2='122' y2='68'/><circle cx='22' cy='76' r='7'/><circle cx='100' cy='76' r='7'/><line x1='56' y1='68' x2='50' y2='82'/><line x1='46' y1='82' x2='54' y2='82'/><line x1='112' y1='68' x2='118' y2='82'/><line x1='114' y1='82' x2='122' y2='82'/><rect x='73' y='42' width='12' height='10'/><line x1='79' y1='42' x2='114' y2='4'/><line x1='114' y1='4' x2='108' y2='26'/><path d='M106,26 Q104,32 108,32 Q111,32 111,28'/></svg>");
+}
+
+/* Auger truck (pole-setting drill) — CTA */
+#cta-section::before, #cta-section::after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 90' fill='none' stroke='%23b9101b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6,68 L6,44 L18,30 L46,30 L46,68'/><path d='M18,30 L18,46 L42,46 L42,30'/><rect x='46' y='50' width='76' height='18'/><line x1='6' y1='68' x2='122' y2='68'/><circle cx='22' cy='76' r='7'/><circle cx='100' cy='76' r='7'/><rect x='94' y='22' width='10' height='30'/><line x1='99' y1='52' x2='99' y2='86'/><line x1='94' y1='57' x2='104' y2='62'/><line x1='94' y1='64' x2='104' y2='69'/><line x1='94' y1='71' x2='104' y2='76'/><line x1='94' y1='78' x2='104' y2='83'/><path d='M97,86 L99,90 L101,86'/></svg>");
+}
+
+@media (max-width: 1025px) {
+  #about::before, #about::after,
+  #gallery::before, #gallery::after,
+  #cta-section::before, #cta-section::after {
+    display: none;
+  }
+}
+
 /* ======================
    11. FOOTER
    ====================== */
