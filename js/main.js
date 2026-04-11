@@ -9,32 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =====================
-  // MOBILE NAV TOGGLE
-  // =====================
-  const hamburger = document.getElementById('hamburger');
-  const mainNav = document.getElementById('main-nav');
-  const siteHeader = document.getElementById('site-header');
-
-  if (hamburger && mainNav) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-      mainNav.classList.toggle('nav-open', isOpen);
-    });
-
-    // Close menu when a nav link is clicked
-    mainNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', false);
-        mainNav.classList.remove('nav-open');
-      });
-    });
-  }
-
-  // =====================
   // SMOOTH SCROLL WITH HEADER OFFSET
   // =====================
+  const siteHeader = document.getElementById('site-header');
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
       const href = anchor.getAttribute('href');
