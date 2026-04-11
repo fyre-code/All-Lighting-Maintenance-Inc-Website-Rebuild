@@ -885,6 +885,15 @@ ul {
   margin: 4px 0;
 }
 
+.footer-bottom a {
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.footer-bottom a:hover {
+  color: var(--gold);
+}
+
 /* ======================
    13. RESPONSIVE
    ====================== */
