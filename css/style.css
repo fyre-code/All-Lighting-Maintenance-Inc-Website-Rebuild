@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 html {
-  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
@@ -135,18 +135,8 @@ ul {
    4. HEADER & NAV
    ====================== */
 #site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  position: static;
   background: var(--dark);
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s;
-}
-
-#site-header.scrolled {
-  border-bottom-color: var(--red);
 }
 
 .nav-inner {

@@ -9,34 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =====================
-  // SMOOTH SCROLL WITH HEADER OFFSET
-  // =====================
-  const siteHeader = document.getElementById('site-header');
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      const href = anchor.getAttribute('href');
-      if (href === '#') return;
-      const target = document.querySelector(href);
-      if (!target) return;
-      e.preventDefault();
-      const headerHeight = siteHeader ? siteHeader.offsetHeight : 0;
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-      window.scrollTo({ top: targetTop, behavior: 'smooth' });
-    });
-  });
-
-  // =====================
-  // HEADER SCROLL STATE
-  // =====================
-  if (siteHeader) {
-    const onScroll = () => {
-      siteHeader.classList.toggle('scrolled', window.scrollY > 50);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  // =====================
   // PARTICLE SYSTEM (HERO CANVAS)
   // =====================
   const canvas = document.getElementById('particle-canvas');
