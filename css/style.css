@@ -302,7 +302,12 @@ ul {
    6. ABOUT SECTION
    ====================== */
 #about {
-  background: var(--white);
+  background-color: var(--white);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+    url("https://pbrlhyansxjdndccwtau.supabase.co/storage/v1/object/public/media-public/72a59dac-c9e9-4cab-9efa-dcdb3eeb66d6/root/1775835281592_all-lighting-maintenance-fleet-service-trucks.webp");
+  background-size: cover;
+  background-position: center;
   padding-top: 40px;
 }
 
@@ -348,7 +353,12 @@ ul {
    7. REVIEWS SECTION
    ====================== */
 #reviews {
-  background: var(--dark);
+  background-color: var(--dark);
+  background-image:
+    linear-gradient(rgba(26, 26, 26, 0.82), rgba(26, 26, 26, 0.82)),
+    url("https://pbrlhyansxjdndccwtau.supabase.co/storage/v1/object/public/media-public/72a59dac-c9e9-4cab-9efa-dcdb3eeb66d6/root/1775834971075_all-lighting-maintenance-bucket-truck-repair.webp");
+  background-size: cover;
+  background-position: center;
 }
 
 #reviews .section-title {
@@ -522,6 +532,8 @@ ul {
 .carousel-dot {
   width: 10px;
   height: 10px;
+  padding: 8px;
+  box-sizing: content-box;
   border-radius: 50%;
   background: #aaa;
   border: none;
@@ -613,7 +625,12 @@ ul {
    9. VIDEOS SECTION
    ====================== */
 #videos {
-  background: var(--dark);
+  background-color: var(--dark);
+  background-image:
+    linear-gradient(rgba(26, 26, 26, 0.82), rgba(26, 26, 26, 0.82)),
+    url("https://pbrlhyansxjdndccwtau.supabase.co/storage/v1/object/public/media-public/72a59dac-c9e9-4cab-9efa-dcdb3eeb66d6/root/1775835368841_all-lighting-maintenance-crane-and-bucket-truck-service.webp");
+  background-size: cover;
+  background-position: center;
 }
 
 #videos .section-title {
@@ -660,7 +677,12 @@ ul {
    10. CTA SECTION
    ====================== */
 #cta-section {
-  background: var(--grey-light);
+  background-color: var(--grey-light);
+  background-image:
+    linear-gradient(rgba(245, 245, 245, 0.88), rgba(245, 245, 245, 0.88)),
+    url("https://pbrlhyansxjdndccwtau.supabase.co/storage/v1/object/public/media-public/72a59dac-c9e9-4cab-9efa-dcdb3eeb66d6/root/1775835756681_all-lighting-maintenance-auger-truck-pole-setting.webp");
+  background-size: cover;
+  background-position: center;
 }
 
 #cta-section .section-title {
@@ -692,91 +714,10 @@ ul {
   position: relative;
 }
 
-#about::before, #about::after,
-#gallery::before, #gallery::after,
-#cta-section::before, #cta-section::after {
-  content: '';
-  position: absolute;
-  width: 121px;
-  height: 84px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: 1;
-}
-
-#about::before, #gallery::before, #cta-section::before {
-  top: 20px;
-  right: 10px;
-}
-
-#about::after, #gallery::after, #cta-section::after {
-  bottom: 20px;
-  left: 10px;
-  transform: scaleX(-1);
-}
-
-/* Bucket truck (aerial lift) — About Us */
-#about::before, #about::after {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 90' fill='none' stroke='%23b9101b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6,68 L6,44 L18,30 L46,30 L46,68'/><path d='M18,30 L18,46 L42,46 L42,30'/><rect x='46' y='50' width='76' height='18'/><line x1='6' y1='68' x2='122' y2='68'/><circle cx='22' cy='76' r='7'/><circle cx='100' cy='76' r='7'/><rect x='63' y='44' width='10' height='7'/><line x1='68' y1='44' x2='84' y2='16'/><line x1='84' y1='16' x2='110' y2='6'/><path d='M105,2 L116,2 L114,12 L107,12 Z'/></svg>");
-}
-
-/* Crane truck — Gallery */
-#gallery::before, #gallery::after {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 90' fill='none' stroke='%23b9101b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6,68 L6,44 L18,30 L46,30 L46,68'/><path d='M18,30 L18,46 L42,46 L42,30'/><rect x='46' y='50' width='76' height='18'/><line x1='6' y1='68' x2='122' y2='68'/><circle cx='22' cy='76' r='7'/><circle cx='100' cy='76' r='7'/><line x1='56' y1='68' x2='50' y2='82'/><line x1='46' y1='82' x2='54' y2='82'/><line x1='112' y1='68' x2='118' y2='82'/><line x1='114' y1='82' x2='122' y2='82'/><rect x='73' y='42' width='12' height='10'/><line x1='79' y1='42' x2='114' y2='4'/><line x1='114' y1='4' x2='108' y2='26'/><path d='M106,26 Q104,32 108,32 Q111,32 111,28'/></svg>");
-}
-
-/* Auger truck (pole-setting drill) — CTA */
-#cta-section::before, #cta-section::after {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 90' fill='none' stroke='%23b9101b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6,68 L6,44 L18,30 L46,30 L46,68'/><path d='M18,30 L18,46 L42,46 L42,30'/><rect x='46' y='50' width='76' height='18'/><line x1='6' y1='68' x2='122' y2='68'/><circle cx='22' cy='76' r='7'/><circle cx='100' cy='76' r='7'/><rect x='94' y='22' width='10' height='30'/><line x1='99' y1='52' x2='99' y2='86'/><line x1='94' y1='57' x2='104' y2='62'/><line x1='94' y1='64' x2='104' y2='69'/><line x1='94' y1='71' x2='104' y2='76'/><line x1='94' y1='78' x2='104' y2='83'/><path d='M97,86 L99,90 L101,86'/></svg>");
-}
-
-@media (max-width: 1025px) {
-  #about::before, #about::after,
-  #gallery::before, #gallery::after,
-  #cta-section::before, #cta-section::after {
-    display: none;
-  }
-}
 
 /* ======================
    11. FOOTER
    ====================== */
-
-/* Gold corner bracket accents on dark sections */
-#reviews,
-#videos,
-#site-footer {
-  position: relative;
-}
-
-#reviews::before, #videos::before, #site-footer::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 121px;
-  height: 121px;
-  border-top: 2px solid var(--gold);
-  border-left: 2px solid var(--gold);
-  pointer-events: none;
-  z-index: 4;
-}
-
-#reviews::after, #videos::after, #site-footer::after {
-  content: '';
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 121px;
-  height: 121px;
-  border-bottom: 2px solid var(--gold);
-  border-right: 2px solid var(--gold);
-  pointer-events: none;
-  z-index: 4;
-}
 
 #site-footer {
   background: var(--dark);
@@ -897,7 +838,7 @@ ul {
   }
 
   .hero-btn {
-    width: 280px;
+    width: 240px;
   }
 
   /* About */
@@ -948,16 +889,54 @@ ul {
     max-width: 320px;
   }
 
+  .section-padding {
+    padding: 50px 0;
+  }
+
+  .brand-logo {
+    height: 72px;
+  }
+
   .gallery-item {
-    flex: 0 0 calc(50% - 6px);
+    flex: 0 0 100%;
   }
 
   .videos-grid {
     grid-template-columns: 1fr;
   }
 
+  .gallery-carousel {
+    padding-bottom: 52px;
+  }
+
+  .carousel-btn {
+    top: auto;
+    bottom: 0;
+    transform: none;
+  }
+
+  .carousel-btn.prev {
+    left: calc(50% - 56px);
+  }
+
+  .carousel-btn.next {
+    right: calc(50% - 56px);
+  }
+
+  .reviews-widget iframe {
+    min-height: 250px !important;
+  }
+
   .footer-inner {
     flex-direction: column;
+    padding: 40px 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
     padding: 40px 0 30px;
   }
 }

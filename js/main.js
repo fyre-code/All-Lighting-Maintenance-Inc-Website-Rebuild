@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const ctx = canvas.getContext('2d');
   let particles = [];
-  const PARTICLE_COUNT = 60;
+  const PARTICLE_COUNT = window.innerWidth <= 768 ? 30 : 60;
   let animationId = null;
 
   function resizeCanvas() {
@@ -188,6 +188,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buildDots();
     goTo(0);
+
+    // Touch swipe support
+    let touchStartX = 0;
+    const wrapper = document.querySelector('.gallery-track-wrapper');
+    if (wrapper) {
+      wrapper.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      wrapper.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? current + visible : current - visible);
+      });
+    }
 
     // --- LIGHTBOX ---
     let lightboxIndex = 0;
