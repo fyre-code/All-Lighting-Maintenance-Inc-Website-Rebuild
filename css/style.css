@@ -355,7 +355,7 @@ ul {
 #reviews {
   background-color: var(--dark);
   background-image:
-    linear-gradient(rgba(26, 26, 26, 0.82), rgba(26, 26, 26, 0.82)),
+    linear-gradient(rgba(26, 26, 26, 0.92), rgba(26, 26, 26, 0.92)),
     url("https://pbrlhyansxjdndccwtau.supabase.co/storage/v1/object/public/media-public/72a59dac-c9e9-4cab-9efa-dcdb3eeb66d6/root/1775834971075_all-lighting-maintenance-bucket-truck-repair.webp");
   background-size: cover;
   background-position: center;
@@ -627,7 +627,7 @@ ul {
 #videos {
   background-color: var(--dark);
   background-image:
-    linear-gradient(rgba(26, 26, 26, 0.82), rgba(26, 26, 26, 0.82)),
+    linear-gradient(rgba(26, 26, 26, 0.92), rgba(26, 26, 26, 0.92)),
     url("https://pbrlhyansxjdndccwtau.supabase.co/storage/v1/object/public/media-public/72a59dac-c9e9-4cab-9efa-dcdb3eeb66d6/root/1775835368841_all-lighting-maintenance-crane-and-bucket-truck-service.webp");
   background-size: cover;
   background-position: center;
