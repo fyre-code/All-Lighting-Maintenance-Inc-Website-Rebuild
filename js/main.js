@@ -9,6 +9,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =====================
+  // LEAVE A REVIEW MODAL
+  // =====================
+  const reviewModal = document.getElementById('review-modal');
+  const reviewModalClose = document.getElementById('review-modal-close');
+  const leaveReviewBtn = document.getElementById('leave-review-btn');
+
+  if (reviewModal && leaveReviewBtn) {
+    leaveReviewBtn.addEventListener('click', () => {
+      reviewModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    reviewModalClose.addEventListener('click', () => {
+      reviewModal.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
+    reviewModal.addEventListener('click', e => {
+      if (e.target === reviewModal) {
+        reviewModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && reviewModal.classList.contains('open')) {
+        reviewModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // =====================
   // PARTICLE SYSTEM (HERO CANVAS)
   // =====================
   const canvas = document.getElementById('particle-canvas');

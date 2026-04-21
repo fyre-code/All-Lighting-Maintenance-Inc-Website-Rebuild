@@ -167,9 +167,9 @@
 
       <!-- Section CTA -->
       <div class="hero-cta-stack">
-        <a href="https://api.hyppocrm.com/widget/form/x7TxTw25yYpo6t20WR7b" class="btn btn-red hero-btn" target="_blank" rel="noopener noreferrer">
+        <button class="btn btn-red hero-btn" id="leave-review-btn">
           Leave a Review
-        </a>
+        </button>
         <a href="tel:8443454448" class="btn btn-outline-dark hero-btn">
           <span class="btn-line-1"><i class="fas fa-phone"></i> Call Us</span>
           <span class="btn-line-2">844-34-LIGHT</span>
@@ -412,6 +412,14 @@
        It will look like: <script src="https://static.elfsight.com/platform/platform.js" defer></script>
   -->
 
+
+  <!-- Leave a Review Modal -->
+  <div id="review-modal" class="review-modal" role="dialog" aria-modal="true" aria-label="Leave a Review">
+    <div class="review-modal__inner">
+      <button class="review-modal__close" id="review-modal-close" aria-label="Close">&times;</button>
+      <iframe src="https://hyppohq.io/w/leave-a-review?embed=true" style="width:100%;min-height:400px;border:none;" allowfullscreen></iframe>
+    </div>
+  </div>
 
 </body>
 </html>

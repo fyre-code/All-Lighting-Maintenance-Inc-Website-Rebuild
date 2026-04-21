@@ -825,6 +825,51 @@ ul {
 }
 
 /* ======================
+   12b. REVIEW MODAL
+   ====================== */
+.review-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.review-modal.open {
+  display: flex;
+}
+
+.review-modal__inner {
+  position: relative;
+  background: var(--white);
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.review-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--dark);
+  z-index: 1;
+  padding: 4px 8px;
+}
+
+.review-modal__close:hover {
+  color: var(--red);
+}
+
+/* ======================
    13. RESPONSIVE
    ====================== */
 @media (max-width: 1025px) {
